@@ -32,7 +32,7 @@ $eventShortDescription = getLocalizedValue($event["shortDescription"], $language
           if (!empty($event["externalLinks"])) {
             $eventLink = $event["externalLinks"][0]["link"];
             if (!empty($eventLink)) {
-              $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field"><a href="%s" target="_blank">Lisätietoa</a></div>', $eventLink);
+              $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field"><a href="%s" target="_blank">%s</a></div>', getTranslation('information', $language), $eventLink);
             }
           }
           break;
@@ -51,25 +51,25 @@ $eventShortDescription = getLocalizedValue($event["shortDescription"], $language
           break;
         case 'startTime':
           if (!empty($event[$field])) {
-            $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field">Alkaa: %s</div>', $event[$field]->format("d.m.Y H:i"));
+            $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field">%s: %s</div>', getTranslation('startsAt', $language), $event[$field]->format("d.m.Y H:i"));
           }
           break;
         case 'endTime':
           if (!empty($event[$field])) {
-            $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field">Loppuu: %s</div>', $event[$field]->format("d.m.Y H:i"));
+            $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field">%s: %s</div>', getTranslation('ends', $language), $event[$field]->format("d.m.Y H:i"));
           }
           break;
         case 'accessible':
           $isAccessible = !empty($event[$field]) && $event[$field] == true;
           if ($isAccessible) {
-            $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field">%s</div>', 'Esteetön');
+            $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field">%s</div>', getTranslation('accessible', $language));
           }
           break;
         case 'offers':
           $offers = $event['offers'];
           if (!empty($offers)) {
             if ($offers[0]['isFree']) {
-              $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field">%s</div>', 'Maksuton');
+              $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field">%s</div>', getTranslation('free', $language));
             } else {
               $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field">%s</div>', getLocalizedValue($offers[0]['price'], $language));
             }
@@ -78,7 +78,7 @@ $eventShortDescription = getLocalizedValue($event["shortDescription"], $language
         case 'provider':
           $provider = $event['provider'];
           if (!empty($provider)) {
-            $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field">Järjestäjä: %s</div>', getLocalizedValue($provider, $language));
+            $fieldSectionContent .= sprintf('<div class="linkedevents-event-fields-field">%s: %s</div>', getTranslation('organizer', $language), getLocalizedValue($provider, $language));
           }
           break;
           // Start: Fields not to be shown as fields

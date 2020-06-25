@@ -7,8 +7,8 @@ $baseUrl = $actionUrl . (empty($_REQUEST) ? '?' : '&') . (empty($page) ? 'les-pa
 if ($page) {
   $baseUrl = substr($actionUrl, 0, -1 * (strlen($page)));
 }
-$previousPage = $baseUrl . (($page ?? 1) - 1);
-$nextPage = $baseUrl . (($page ?? 1) + 1);
+$previousPageUrl = $baseUrl . (($page ?? 1) - 1);
+$nextPageUrl = $baseUrl . (($page ?? 1) + 1);
 
 if (!function_exists("getLocalizedValue")) {
 
@@ -50,14 +50,71 @@ if (!function_exists("formatLocationAddress")) {
   }
 }
 
+if (!function_exists("getTranslation")) {
+  /**
+   * Returns translation for given key in given language
+   * 
+   * @param string translationKey
+   * @return string language (fi/en/sv)
+   */
+  function getTranslation($translationKey, $language)
+  {
+    $translations = array(
+      'organizer' => array(
+        'fi' => 'Järjestäjä',
+        'en' => 'Organizer',
+        'sv' => 'Anordnare'
+      ),
+      'information' => array(
+        'fi' => 'Lisätietoa',
+        'en' => 'Information',
+        'sv' => 'Information'
+      ),
+      'accessible' => array(
+        'fi' => 'Esteetön',
+        'en' => 'Accessible',
+        'sv' => 'Åtkomlig'
+      ),
+      'startsAt' => array(
+        'fi' => 'Alkaa',
+        'en' => 'Starts at',
+        'sv' => 'Start'
+      ),
+      'ends' => array(
+        'fi' => 'Loppuu',
+        'en' => 'Ends',
+        'sv' => 'Slut'
+      ),
+      'free' => array(
+        'fi' => 'Maksuton',
+        'en' => 'Free of charge',
+        'sv' => 'Kostnadsfri'
+      ),
+      'previous' => array(
+        'fi' => 'Edellinen',
+        'en' => 'Previous',
+        'sv' => 'Förra'
+      ),
+      'next' => array(
+        'fi' => 'Seuraava',
+        'en' => 'Next',
+        'sv' => 'Nästä'
+      )
+    );
+    return $translations[$translationKey][empty($language) ? 'fi' : $language] ?? '';
+  }
+}
+
 foreach ($data->events as $event) {
   include __DIR__ . "/event.php";
 }
 
 $result .= '<div class="linkedevents-page-navigation">';
 if ($page > 1) {
-  $result .= sprintf('<a href="%s" title="Edellinen sivu">&#10094; Edellinen</a>', $previousPage);
+  $previousPageLinkText = getTranslation('previous', $language);
+  $result .= sprintf('<a href="%s" title="%s">&#10094; %s</a>', $previousPageUrl, $previousPageLinkText, $previousPageLinkText);
 }
-$result .= sprintf('<a href="%s" title="Seuraava sivu">Seuraava &#10095;</a>', $nextPage);
+$nextPageLinkText = getTranslation('next', $language);
+$result .= sprintf('<a href="%s" title="%s">%s &#10095;</a>', $nextPageUrl, $nextPageLinkText, $nextPageLinkText);
 $result .= '</div>';
 echo $result;
