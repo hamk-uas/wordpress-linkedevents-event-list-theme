@@ -5,98 +5,167 @@
   align-items: flex-start;
   margin-bottom: 40px;
 }
-  /***
-  PAGE NAVIGATION
-  ***/
-  .linkedevents-page-navigation {
-    text-align: center;
-  }
-    .linkedevents-page-navigation > a {
-      background-color: #fff;
-      padding: 10px;
-    }
 
-  /***
-  HEADER - desktop
-  ***/
+/***
+PAGE NAVIGATION
+***/
+.linkedevents-page-navigation {
+  text-align: center;
+}
+
+.linkedevents-page-navigation > a {
+  background-color: #fff;
+  padding: 10px;
+  background-color: #00274D; /* Blue */
+  border: none;
+  color: white!important;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+/***
+HEADER - desktop
+***/
+.linkedevents-event-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.linkedevents-event-header-image{
+  flex: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.linkedevents-event-header-image-img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+}
+
+.linkedevents-event-header-text {
+  flex: 1;
+}
+
+.entry-content h2.linkedevents-event-header-text-name {
+  margin: 0px;
+  margin-bottom: 20px;
+}
+
+p.linkedevents-event-header-text-description {
+  margin: 0px;
+}
+
+/***
+HEADER - mobile
+***/
+@media all and (max-width: 640px) {
   .linkedevents-event-header {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-bottom: 20px;
+    flex-direction: column;
   }
-    .linkedevents-event-header-image{
-      flex: none;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      margin-right: 20px;
-    }
-      .linkedevents-event-header-image-img {
-        height: 150px;
-        width: 150px;
-        object-fit: cover;
-      }
-    .linkedevents-event-header-text {
-      flex: 1;
-    }
-      .entry-content h2.linkedevents-event-header-text-name {
-        margin: 0px;
-        margin-bottom: 20px;
-      }
-      p.linkedevents-event-header-text-description {
-        margin: 0px;
-      }
-    /***
-    HEADER - mobile
-    ***/
-    @media all and (max-width: 640px) {
-      .linkedevents-event-header {
-        flex-direction: column;
-      }
-        .linkedevents-event-header-image{
-          width: 100%;
-          margin-right: 0px;
-        }
-          .linkedevents-event-header-image-img {
-            height: 320px;
-            width: 320px;
-            object-fit: cover;
-          }
-        .linkedevents-event-header-text {
-          margin: 5% 5% 0px 5%;
-        }
-    }
+  .linkedevents-event-header-image{
+    width: 100%;
+    margin-right: 0px;
+  }
+  .linkedevents-event-header-image-img {
+    height: 320px;
+    width: 320px;
+    object-fit: cover;
+  }
+  .linkedevents-event-header-text {
+    margin: 5% 5% 0px 5%;
+  }
+}
 
-    /***
-    FIELDS - desktop
-    ***/
-    .linkedevents-event-fields {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      flex-wrap: wrap;
-    }
-      .linkedevents-event-fields-field {
-        /* Edit values below to customize appearance of event info fields */
-        background-color: #fff;
-        /* color: #ffffff; */
-        border: 1px solid #3c3c3c;
-        padding: 10px 20px;
-        margin-right: 15px;
-        margin-bottom: 10px;
-      }
-      .linkedevents-event-fields-field > a {
-        /* Default anchor color might need adjustment according to field background color. This can be done by editing value below  */
-        /* color: #3c3c3c; */
-      }
-    /***
-    FIELDS - mobile
-    ***/
-    @media all and (max-width: 640px) {
-      .linkedevents-event-fields {
-        margin: 0px 5% 5% 5%;
-      }
-    }
+/***
+FIELDS - desktop
+***/
+.linkedevents-event-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.linkedevents-event-fields-field {
+  /* Edit values below to customize appearance of event info fields */
+  background-color: #00274D;
+  color: #ffffff;
+  border: 1px solid #3c3c3c;
+  padding: 10px 20px;
+  margin-right: 15px;
+  margin-bottom: 10px;
+}
+
+.linkedevents-event-fields-field > a {
+  /* Default anchor color might need adjustment according to field background color. This can be done by editing value below  */
+  /* color: #3c3c3c; */
+  color: #ffffff;
+}
+
+.linkedevents-events-text-input {
+  margin-bottom: 20px;
+}
+
+.linkedevents-events-search {
+  font-weight: bold;
+}
+
+.linkedevents-events-keyword-section {
+  margin-bottom: 20px;		
+  font-weight: normal;
+}
+
+.linkedevents-events-keyword-container input[type="checkbox"] {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.linkedevents-events-keyword-container label {
+  vertical-align: middle;
+  font-size: 15px;
+  text-transform: capitalize;
+}
+
+.linkedevents-events-keyword-container {
+  width: 112px;
+  padding-right: 0px;
+}
+
+.linkedevents-events-date-sep {
+  margin-bottom: 20px; 
+}
+
+/***
+FIELDS - mobile
+***/
+@media all and (max-width: 640px) {
+  .linkedevents-event-fields {
+    
+  }
+}
+
+/***
+Search button
+***/
+.linkedevents-events-search-button {
+  margin: 10px;
+  background-color: #00274D; /* Blue */
+  border: none;
+  color: white!important;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
