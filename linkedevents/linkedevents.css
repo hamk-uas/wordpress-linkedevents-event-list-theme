@@ -150,7 +150,7 @@ FIELDS - mobile
 ***/
 @media all and (max-width: 640px) {
   .linkedevents-event-fields {
-    
+    margin: 0px 5% 5% 5%;
   }
 }
 
