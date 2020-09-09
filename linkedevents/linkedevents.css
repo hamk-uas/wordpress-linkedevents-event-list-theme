@@ -154,6 +154,10 @@ FIELDS - mobile
   }
 }
 
+label {
+  color: #00274D;
+}
+
 /***
 Search button
 ***/
